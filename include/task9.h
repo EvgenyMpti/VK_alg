@@ -9,8 +9,11 @@
 
 class Task9 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>& arr);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task9()
+    {
+        desc_ = "Move even numbers to front, preserving order";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     void moveEvenStablePartition(std::vector<int>& arr); // O(N log N)
     void moveEvenTwoPointers(std::vector<int>& arr);     // O(N^2)

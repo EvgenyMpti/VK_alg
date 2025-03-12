@@ -1,8 +1,6 @@
 #include "gtest/gtest.h"
 #include "task5.h"
 
-/* TASK 5 */
-
 TEST(Task5Test, AllImplementations) 
 {
     Task5 task;
@@ -15,7 +13,8 @@ TEST(Task5Test, AllImplementations)
     };
 
     // Набор тестовых случаев
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{}, {}, {}},
         {{1, 2, 3}, {}, {1, 2, 3}},
         {{}, {4, 5, 6}, {4, 5, 6}},
@@ -28,7 +27,7 @@ TEST(Task5Test, AllImplementations)
         {{-5, -3}, {-4, -2}, {-5, -4, -3, -2}},
         {{1000000, 2000000}, {1500000, 2500000}, {1000000, 1500000, 2000000, 2500000}},
         {{1,2,3}, {4,5,6}, {1,2,3,4,5,6}},
-        {{4, 5, 6}, {1, 2, 3}, {1, 2, 3, 4, 5, 6}},
+        {{4, 5, 6}, {1, 2, 3}, {1, 2, 3, 4, 5, 6}}
     };
 
     for (const auto& testCase : testCases) 

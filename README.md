@@ -1,11 +1,11 @@
-# VK_alg
-
-[==========] Running 13 tests from 13 test suites.
+#VK alg
+```
+[==========] Running 17 tests from 17 test suites.
 [----------] Global test environment set-up.
 [----------] 1 test from Task1Test
 [ RUN      ] Task1Test.AllImplementations
-[       OK ] Task1Test.AllImplementations (8 ms)
-[----------] 1 test from Task1Test (9 ms total)
+[       OK ] Task1Test.AllImplementations (6 ms)
+[----------] 1 test from Task1Test (6 ms total)
 
 [----------] 1 test from Task10Test
 [ RUN      ] Task10Test.AllImplementations
@@ -22,15 +22,35 @@
 [       OK ] Task12Test.AllImplementations (0 ms)
 [----------] 1 test from Task12Test (0 ms total)
 
+[----------] 1 test from Task13Test
+[ RUN      ] Task13Test.AllImplementations
+[       OK ] Task13Test.AllImplementations (0 ms)
+[----------] 1 test from Task13Test (0 ms total)
+
+[----------] 1 test from Task14Test
+[ RUN      ] Task14Test.AllImplementations
+[       OK ] Task14Test.AllImplementations (0 ms)
+[----------] 1 test from Task14Test (0 ms total)
+
+[----------] 1 test from Task15Test
+[ RUN      ] Task15Test.AllImplementations
+[       OK ] Task15Test.AllImplementations (0 ms)
+[----------] 1 test from Task15Test (1 ms total)
+
+[----------] 1 test from Task16Test
+[ RUN      ] Task16Test.AllImplementations
+[       OK ] Task16Test.AllImplementations (0 ms)
+[----------] 1 test from Task16Test (1 ms total)
+
 [----------] 1 test from Task17Test
 [ RUN      ] Task17Test.AllImplementations
 [       OK ] Task17Test.AllImplementations (0 ms)
-[----------] 1 test from Task17Test (0 ms total)
+[----------] 1 test from Task17Test (1 ms total)
 
 [----------] 1 test from Task2Test
 [ RUN      ] Task2Test.AllImplementations
 [       OK ] Task2Test.AllImplementations (0 ms)
-[----------] 1 test from Task2Test (0 ms total)
+[----------] 1 test from Task2Test (1 ms total)
 
 [----------] 1 test from Task3Test
 [ RUN      ] Task3Test.AllImplementations
@@ -45,12 +65,12 @@
 [----------] 1 test from Task5Test
 [ RUN      ] Task5Test.AllImplementations
 [       OK ] Task5Test.AllImplementations (0 ms)
-[----------] 1 test from Task5Test (1 ms total)
+[----------] 1 test from Task5Test (0 ms total)
 
 [----------] 1 test from Task6Test
 [ RUN      ] Task6Test.AllImplementations
 [       OK ] Task6Test.AllImplementations (0 ms)
-[----------] 1 test from Task6Test (1 ms total)
+[----------] 1 test from Task6Test (3 ms total)
 
 [----------] 1 test from Task7Test
 [ RUN      ] Task7Test.AllImplementations
@@ -65,82 +85,108 @@
 [----------] 1 test from Task9Test
 [ RUN      ] Task9Test.AllImplementations
 [       OK ] Task9Test.AllImplementations (0 ms)
-[----------] 1 test from Task9Test (4 ms total)
+[----------] 1 test from Task9Test (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 13 tests from 13 test suites ran. (51 ms total)
-[  PASSED  ] 13 tests.
+[==========] 17 tests from 17 test suites ran. (59 ms total)
+[  PASSED  ] 17 tests.
 -------------
-Task: 1
-Iterative:          1 264 511 ns
-Progression:        5 ns
-std::accumulate:    7 648 379 ns
-Iterative half:     1 711 328 ns
+TaskSum of all numbers
+Iterative:          859 986 ns
+Progression:        4 ns
+std::accumulate:    7 183 015 ns
+Iterative half:     1 070 134 ns
 
 -------------
-Task: 2
-SumTwoPointers:     1 213 923 ns
-HashTable:          878 303 ns
-BinarySearch:       1 907 ns
-BruteForce:         25 318 ns
+TaskFind indices summing to target value
+SumTwoPointers:     566 251 ns
+HashTable:          4 738 525 ns
+BinarySearch:       820 ns
+BruteForce:         113 163 ns
 
 -------------
-Task: 3
-Swap:               1 332 229 ns
-Iter Swap:          8 696 474 ns
-std::reverse:       114 969 ns
+TaskReverse array without allocations
+Swap:               488 752 ns
+Iter Swap:          1 903 510 ns
+std::reverse:       36 592 ns
 
 -------------
-Task: 4
-std::rotate:        230 864 ns
-Three move:         246 411 ns
-While swap:         4 899 226 ns
+TaskLeft-rotate array segment in linear time
+std::rotate:        80 943 ns
+Three move:         77 765 ns
+While swap:         1 847 759 ns
 
 -------------
-Task: 5
-Two Pointers:       2 390 835 ns
-Merge With Sort:    6 282 587 ns
-n Insertion:        13 800 155 ns
+TaskMerge two sorted arrays into new one
+Two Pointers:       892 220 ns
+Merge With Sort:    3 764 211 ns
+n Insertion:        15 226 072 ns
 
 -------------
-Task: 6
-merge Arrays:       2 430 907 ns
-merge & sort:       26 206 722 ns
+TaskMerge two sorted arrays in-place
+merge Arrays:       2 843 783 ns
+merge & sort:       34 271 135 ns
 
 -------------
-Task: 7
-Two side:           345 225 ns
-Counting:           693 494 ns
-One side:           581 529 ns
-Partition:          278 156 ns
+TaskSort 0 and 1 in-place
+Two side:           390 642 ns
+Counting:           849 391 ns
+One side:           676 804 ns
+Partition:          303 306 ns
 
 -------------
-Task: 8
-Three ptr:          1 949 220 ns
-Counting:           568 576 ns
-Partition:          483 652 ns
+TaskSort 0,1 and 2 in-place
+Three ptr:          2 560 110 ns
+Counting:           730 150 ns
+Partition:          564 851 ns
 
 -------------
-Task: 9
-Stable Partition:   300 096 ns
-Two Pointers:       628 956 ns
-Two Pointers alt:   3 195 676 ns
+TaskMove even numbers to front, preserving order
+Stable Partition:   326 575 ns
+Two Pointers:       883 168 ns
+Two Pointers fast:  4 141 208 ns
 
 -------------
-Task: 10
-Stable Partition:   616 205 ns
-Two Pointers:       627 945 ns
-Shift move:         394 535 ns
+TaskMove zeros to end of array
+Stable Partition:   353 095 ns
+Two Pointers:       749 307 ns
+Shift move:         541 334 ns
 
 -------------
-Task: 11
-Hash table:         11 392 534 ns
-Floyd method:       1 073 930 ns
+TaskDetermine if linked list is cyclic
+Hash table:         11 169 452 ns
+Floyd method:       80 252 ns
 
 -------------
-Task: 12
-reverse List:       33 766 ns
+Taskreverse Forward List
+reverse List:       34 722 ns
+std::reverse:       2 200 559 ns
 
 -------------
-Task: 17
-merge Two Lists:    392 878 ns
+TaskFind linked list middle in O(n)
+Fast and Slow:      1 910 732 ns
+Length Calculation: 3 128 620 ns
+
+-------------
+TaskDelete linked list node matching value
+Two pointers:       2 110 762 ns
+One pointer dummy:  1 755 146 ns
+
+-------------
+TaskCheck subsequence string, queue, two pointers
+Queue:              7 420 ns
+Two pointers:       1 172 ns
+Iterators:          15 966 ns
+Find:               352 ns
+
+-------------
+TaskDetermine if string is palindrome: bool
+Stack:              9 153 ns
+Deque:              9 184 ns
+Two pointers:       294 ns
+stl equal:          1 271 ns
+
+-------------
+TaskMerge two sorted lists, Memory - O(1)
+merge Two Lists:    409 485 ns
+```

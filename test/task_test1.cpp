@@ -3,12 +3,14 @@
 
 /* TASK 1 */
 
-TEST(Task1Test, AllImplementations) {
+TEST(Task1Test, AllImplementations) 
+{
     Task1 task;
     std::vector<int> testValues = { 0, 1, 5, 10, 128, 129, 1000, 1000000 };
     std::vector<long long> expectedValues = { 0, 1, 15, 55, 8256, 8385, 500500, 500000500000 };
 
-    for (size_t i = 0; i < testValues.size(); ++i) {
+    for (size_t i = 0; i < testValues.size(); ++i) 
+    {
         int n = testValues[i];
         long long expected = expectedValues[i];
 

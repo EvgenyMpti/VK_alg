@@ -1,22 +1,18 @@
 #include "task4.h"
 
-std::vector<ImplementationResult> Task4::runImplementations(std::vector<int>& nums, int k)
-{
-    std::vector<ImplementationResult> results;
-
-    results.push_back(runAndMeasure([&]() { rotateLeft1(nums, k); }, "std::rotate"));
-    results.push_back(runAndMeasure([&]() { rotateLeft2(nums, k); }, "Three move"));
-    results.push_back(runAndMeasure([&]() { rotateLeft3(nums, k); }, "While swap"));
-
-    return results;
-}
-
-std::pair<int, std::vector<ImplementationResult>> Task4::getStat()
+std::vector<ImplementationResult> Task4::runImplementations()
 {
     const int offset = 4000;
     std::vector<int> big_arr(100000);
     std::iota(big_arr.begin(), big_arr.end(), 1);
-    return { 4, runImplementations(big_arr, offset) };
+    std::vector<int> arr1 = big_arr, arr2 = big_arr, arr3 = big_arr;
+
+    std::vector<ImplementationResult> results;
+    results.push_back(runAndMeasure([&]() { rotateLeft1(arr1, offset); }, "std::rotate"));
+    results.push_back(runAndMeasure([&]() { rotateLeft2(arr2, offset); }, "Three move"));
+    results.push_back(runAndMeasure([&]() { rotateLeft3(arr3, offset); }, "While swap"));
+
+    return results;
 }
 
 // Используем std::rotate

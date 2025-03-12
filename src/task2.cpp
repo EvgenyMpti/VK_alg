@@ -5,9 +5,12 @@
 
 #include "task2.h"
 
-std::vector<ImplementationResult> Task2::runImplementations
-    (const std::vector<int>& nums, int target)
+std::vector<ImplementationResult> Task2::runImplementations()
 {
+    const int target = 15890;
+    std::vector<int> nums(100000);
+    std::iota(nums.begin(), nums.end(), 1);
+
     std::vector<ImplementationResult> results;
     results.push_back(runAndMeasure([&]() { twoPointers(nums, target); }, "SumTwoPointers"));
     results.push_back(runAndMeasure([&]() { hashTable(nums, target); }, "HashTable"));
@@ -15,14 +18,6 @@ std::vector<ImplementationResult> Task2::runImplementations
     results.push_back(runAndMeasure([&]() { bruteForce(nums, target); }, "BruteForce"));
 
     return results;
-}
-
-std::pair<int, std::vector<ImplementationResult>> Task2::getStat()
-{
-    const int target = 1589;
-    std::vector<int> big_arr(100000);
-    std::iota(big_arr.begin(), big_arr.end(), 1);
-    return { 2, runImplementations(big_arr, target) };
 }
 
 Task2::TwoSumResult Task2::twoPointers(const std::vector<int>& nums, int target) 

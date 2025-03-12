@@ -18,8 +18,11 @@ public:
             return found == other.found && index1 == other.index1 && index2 == other.index2;
         }
     };
-    std::vector<ImplementationResult> runImplementations(const std::vector<int>& nums, int target);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task2()
+    {
+        desc_ = "Find indices summing to target value";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     TwoSumResult twoPointers(const std::vector<int>& nums, int target);     // O(n)
     TwoSumResult hashTable(const std::vector<int>& nums, int target);       // O(n) + память, поиск O(1)

@@ -9,8 +9,11 @@
 
 class Task8 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>& arr);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task8()
+    {
+        desc_ = "Sort 0,1 and 2 in-place";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     void sortFlag(std::vector<int>& arr);           // O(n)
     void sortFlagCounting(std::vector<int>& arr);   // O(n)

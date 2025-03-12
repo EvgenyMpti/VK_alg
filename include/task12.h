@@ -8,8 +8,11 @@
 
 class Task12 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(ListNodeRaw*);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task12()
+    {
+        desc_ = "reverse Forward List";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
-    ListNodeRaw* Task12::reverseList(ListNodeRaw* head); //O(n)
+    ListNode* Task12::reverseList(ListNode* head); //O(n)
 };

@@ -15,10 +15,13 @@
 
 class Task10 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>& arr);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task10()
+    {
+        desc_ = "Move zeros to end of array";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
-    void moveZerosStablePartition(std::vector<int>& arr);
-    void moveZerosTwoPointers(std::vector<int>& arr);
-    void moveZerosShift(std::vector<int>& arr);
+    void moveZerosStablePartition(std::vector<int>& arr);      // O(NlogN) (min N max Nlog^2(n)) + mem(O(1)||O(n)) + order
+    void moveZerosTwoPointers(std::vector<int>& arr);          // O(N)
+    void moveZerosShift(std::vector<int>& arr);                // O(N^2)
 };

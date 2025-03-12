@@ -10,7 +10,8 @@ TEST(Task10Test, AllImplementations)
         std::vector<int> expected;
     };
 
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{0, 0, 1, 0, 3, 12}, {1, 3, 12, 0, 0, 0}},
         {{0, 33, 57, 88, 60, 0, 0, 80, 99}, {33, 57, 88, 60, 80, 99, 0, 0, 0}},
         {{0, 0, 0, 18, 16, 0, 0, 77, 99}, {18, 16, 77, 99, 0, 0, 0, 0, 0}},
@@ -25,7 +26,8 @@ TEST(Task10Test, AllImplementations)
         {{0, 0, 1, 0, 2, 0, 3}, {1, 2, 3, 0, 0, 0, 0}}
     };
 
-    for (const auto& testCase : testCases) {
+    for (const auto& testCase : testCases) 
+    {
         std::vector<std::vector<int>> results;
 
         std::vector<int> arr1 = testCase.arr, arr2 = testCase.arr, arr3 = testCase.arr;

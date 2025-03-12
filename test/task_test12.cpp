@@ -10,7 +10,8 @@ TEST(Task12Test, AllImplementations)
         std::vector<int> expected;
     };
 
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{}, {}},
         {{1}, {1}},
         {{1, 2, 3, 4, 5}, {5, 4, 3, 2, 1}},
@@ -21,7 +22,7 @@ TEST(Task12Test, AllImplementations)
 
     for (const auto& testCase : testCases) 
     {
-        ListNodeRaw* list = task.createListRaw(testCase.input);
+        ListNode* list = task.createList(testCase.input);
         auto head = task.reverseList(list);
         auto result = task.listToVector(head);
         task.deleteList(list);

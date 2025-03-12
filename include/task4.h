@@ -14,8 +14,11 @@ k = 3
 
 class Task4 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>& nums, int k);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task4()
+    {
+        desc_ = "Left-rotate array segment in linear time";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     void rotateLeft1(std::vector<int>& nums, int k);  // O(n)
     void rotateLeft2(std::vector<int>& nums, int k);  // O(n)

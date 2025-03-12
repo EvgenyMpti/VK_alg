@@ -10,8 +10,11 @@
 
 class Task6 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>&, std::vector<int>&);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task6()
+    {
+        desc_ = "Merge two sorted arrays in-place";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     void mergeArrays(std::vector<int>& arr1, const std::vector<int>& arr2);     //O(m + n)
     void mergeArraysSort(std::vector<int>& arr1, const std::vector<int>& arr2); //O((m + n) log (m + n))

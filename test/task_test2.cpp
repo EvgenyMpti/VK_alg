@@ -1,10 +1,8 @@
 #include "gtest/gtest.h"
 #include "task2.h"
 
-
-/* TASK 2 */
-
-TEST(Task2Test, AllImplementations) {
+TEST(Task2Test, AllImplementations) 
+{
     Task2 task;
 
     struct TestData {
@@ -13,7 +11,8 @@ TEST(Task2Test, AllImplementations) {
         Task2::TwoSumResult expected;
     };
 
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{2, 7, 11, 15}, 9, {true, 0, 1}},
         {{2, 7, 11, 15}, 18, {true, 1, 2}},
         {{2, 7, 11, 15}, 26, {true, 2, 3}},
@@ -27,7 +26,8 @@ TEST(Task2Test, AllImplementations) {
         {{-5, -3, -1, 2, 4}, -4, {true, 1, 2}},
     };
 
-    for (const auto& testCase : testCases) {
+    for (const auto& testCase : testCases) 
+    {
 
         std::vector<Task2::TwoSumResult> results;
         results.push_back(task.twoPointers(testCase.nums, testCase.target));

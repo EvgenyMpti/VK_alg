@@ -11,7 +11,8 @@ TEST(Task11Test, AllImplementations)
         bool expected;
     };
 
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{}, -1, false},
         {{1}, -1, false},
         {{1, 2, 3, 4, 5}, -1, false},
@@ -24,7 +25,7 @@ TEST(Task11Test, AllImplementations)
 
     for (const auto& testCase : testCases) 
     {
-        std::shared_ptr<ListNode> list = task.createList(testCase.values, testCase.cyclePos);
+        ListNode* list = task.createList(testCase.values, testCase.cyclePos);
 
         // Проверяем обе реализации
         EXPECT_EQ(task.hasCycleFloyd(list), testCase.expected)
@@ -32,5 +33,7 @@ TEST(Task11Test, AllImplementations)
 
         EXPECT_EQ(task.hasCycleHashSet(list), testCase.expected)
             << "HashSet method failed for cyclePos: " << testCase.cyclePos;
+
+        task.deleteList(list);
     }
 }

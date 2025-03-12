@@ -10,7 +10,8 @@ TEST(Task8Test, AllImplementations)
         std::vector<int> expectedSorted;
     };
 
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{}, {}},
         {{0}, {0}},
         {{1}, {1}},

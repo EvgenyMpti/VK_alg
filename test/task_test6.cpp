@@ -1,8 +1,6 @@
 #include "gtest/gtest.h"
 #include "task6.h"
 
-/* TASK 6 */
-
 TEST(Task6Test, AllImplementations) 
 {
     Task6 task;
@@ -13,7 +11,8 @@ TEST(Task6Test, AllImplementations)
         std::vector<int> expectedMerged;
     };
 
-    std::vector<TestData> testCases = {
+    std::vector<TestData> testCases = 
+    {
         {{}, {}, {}},
         {{1, 2, 3, 0, 0, 0}, {4, 5, 6}, {1, 2, 3, 4, 5, 6}},
         {{4, 5, 6, 0, 0, 0}, {1, 2, 3}, {1, 2, 3, 4, 5, 6}},

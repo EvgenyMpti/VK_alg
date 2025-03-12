@@ -17,16 +17,8 @@ protected:
 
 struct ListNode {
     int val;
-    std::shared_ptr<ListNode> next;
-
+    ListNode* next;
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, std::shared_ptr<ListNode> nextNode) : val(x), next(nextNode) {}
-};
-
-struct ListNodeRaw {
-    int val;
-    ListNodeRaw* next;
-    ListNodeRaw(int x) : val(x), next(nullptr) {}
 };
 
 struct ImplementationResult {
@@ -38,16 +30,18 @@ class Task {
 public:
     virtual ~Task() = default;
 
-    virtual std::pair<int, std::vector<ImplementationResult>> getStat() = 0;
+    virtual std::vector<ImplementationResult> runImplementations() = 0;
+
+    std::string desc_;
 
     void printStat()
     {
-        const auto& results = getStat();
+        const auto& results = runImplementations();
         std::locale spaces(std::locale(), new Spaces);
         std::cout.imbue(spaces);
-        std::cout << "-------------\nTask: " << results.first << "\n";
+        std::cout << "-------------\nTask" << desc_ << "\n";
         
-        for (const auto& res : results.second)
+        for (const auto& res : results)
             std::cout << std::left << std::setw(20) << (res.name + ':') << res.duration << " ns\n";
 
         std::cout << std::endl;
@@ -65,34 +59,89 @@ public:
         return { duration.count()/ cnt, name };
     }
 
-    void deleteList(ListNodeRaw* head) {
-        while (head != nullptr) {
-            ListNodeRaw* temp = head;
+    // Raw ptr
+
+    void deleteList(ListNode* head) 
+    {
+        if (!head) 
+            return;
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        // Detect cycle
+        bool hasCycle = false;
+        while (fast && fast->next) 
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) 
+            {
+                hasCycle = true;
+                break;
+            }
+        }
+
+        if (hasCycle) 
+        {
+            slow = head;
+            while (slow != fast) 
+            {
+                slow = slow->next;
+                fast = fast->next;
+            }
+
+            ListNode* cycleEnd = slow;
+            while (cycleEnd->next != slow) 
+                cycleEnd = cycleEnd->next;
+
+            cycleEnd->next = nullptr;
+        }
+
+        while (head != nullptr) 
+        {
+            ListNode* temp = head;
             head = head->next;
             delete temp;
         }
     }
 
-    std::vector<int> listToVector(ListNodeRaw* head) {
+    std::vector<int> listToVector(ListNode* head) 
+    {
         std::vector<int> result;
-        ListNodeRaw* current = head;
-        while (current != nullptr) {
+        ListNode* current = head;
+        while (current != nullptr) 
+        {
             result.push_back(current->val);
             current = current->next;
         }
         return result;
     }
 
-    ListNodeRaw* createListRaw(const std::vector<int>& values) {
-        if (values.empty()) {
+    ListNode* createList(const std::vector<int>& values, int cyclePos = -1) 
+    {
+        if (values.empty())
             return nullptr;
-        }
-        ListNodeRaw* head = new ListNodeRaw(values[0]);
-        ListNodeRaw* current = head;
-        for (size_t i = 1; i < values.size(); ++i) {
-            current->next = new ListNodeRaw(values[i]);
+
+        ListNode* head = new ListNode(values[0]);
+        ListNode* current = head;
+        ListNode* cycleNode = nullptr;
+
+        for (size_t i = 1; i < values.size(); ++i) 
+        {
+            current->next = new ListNode(values[i]);
             current = current->next;
+            if (static_cast<int>(i) == cyclePos)
+                cycleNode = current;
         }
+
+        if (cyclePos >= 0) 
+        {
+            if (cyclePos == 0)
+                cycleNode = head;
+            current->next = cycleNode;
+        }
+
         return head;
     }
 };

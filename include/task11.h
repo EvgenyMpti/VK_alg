@@ -9,11 +9,12 @@
 
 class Task11 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::shared_ptr<ListNode> head);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task11()
+    {
+        desc_ = "Determine if linked list is cyclic";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
-    bool hasCycleHashSet(std::shared_ptr<ListNode> head);
-    bool hasCycleFloyd(std::shared_ptr<ListNode> head);
-
-    std::shared_ptr<ListNode> createList(const std::vector<int>& values, int cyclePos = -1);
+    bool hasCycleHashSet(ListNode* head);    // O(N) коллизии(N^2) + mem O(N)
+    bool hasCycleFloyd(ListNode* head);      // O(N)
 };

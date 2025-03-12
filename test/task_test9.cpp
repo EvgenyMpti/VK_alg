@@ -5,7 +5,8 @@ TEST(Task9Test, AllImplementations)
 {
     Task9 task;
 
-    std::vector<std::vector<int>> testCases = {
+    std::vector<std::vector<int>> testCases = 
+    {
         {},
         {1},
         {2},

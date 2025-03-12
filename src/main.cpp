@@ -15,6 +15,10 @@
 #include "task10.h"
 #include "task11.h"
 #include "task12.h"
+#include "task13.h"
+#include "task14.h"
+#include "task15.h"
+#include "task16.h"
 #include "task17.h"
 
 int main()
@@ -35,6 +39,10 @@ int main()
     Task10().printStat();
     Task11().printStat();
     Task12().printStat();
+    Task13().printStat();
+    Task14().printStat();
+    Task15().printStat();
+    Task16().printStat();
     Task17().printStat();
 
     return 0;

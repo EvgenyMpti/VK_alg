@@ -1,7 +1,8 @@
 #include "task1.h"
 
-std::vector<ImplementationResult> Task1::runImplementations(int n)
+std::vector<ImplementationResult> Task1::runImplementations()
 {
+    const int n = 1000000;
     std::vector<ImplementationResult> results;
     results.push_back(runAndMeasure([&]() { sumIterative(n); }, "Iterative"));
     results.push_back(runAndMeasure([&]() { sumProgression(n); }, "Progression"));
@@ -9,12 +10,6 @@ std::vector<ImplementationResult> Task1::runImplementations(int n)
     results.push_back(runAndMeasure([&]() { sumIterativeHalf(n); }, "Iterative half"));
     
     return results;
-}
-
-std::pair<int, std::vector<ImplementationResult>> Task1::getStat()
-{
-    const int N = 1000000;
-    return { 1, runImplementations(N) };
 }
 
 long long Task1::sumIterative(int n) 

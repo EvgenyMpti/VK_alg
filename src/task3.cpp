@@ -1,21 +1,18 @@
 #include "task3.h"
 
-std::vector<ImplementationResult> Task3::runImplementations(std::vector<int>& arr)
+std::vector<ImplementationResult> Task3::runImplementations()
 {
-    std::vector<ImplementationResult> results;
 
-    results.push_back(runAndMeasure([&]() { reverse_swap(arr); }, "Swap"));
-    results.push_back(runAndMeasure([&]() { reverse_iter_swap(arr); }, "Iter Swap"));
-    results.push_back(runAndMeasure([&]() { reverse_std_reverse(arr); }, "std::reverse"));
-
-    return results;
-}
-
-std::pair<int, std::vector<ImplementationResult>> Task3::getStat()
-{
     std::vector<int> big_arr(100000);
     std::iota(big_arr.begin(), big_arr.end(), 1);
-    return { 3, runImplementations(big_arr) };
+    std::vector<int> arr1 = big_arr, arr2 = big_arr, arr3 = big_arr;
+
+    std::vector<ImplementationResult> results;
+    results.push_back(runAndMeasure([&]() { reverse_swap(arr1); }, "Swap"));
+    results.push_back(runAndMeasure([&]() { reverse_iter_swap(arr2); }, "Iter Swap"));
+    results.push_back(runAndMeasure([&]() { reverse_std_reverse(arr3); }, "std::reverse"));
+
+    return results;
 }
 
 // Разворот с использованием временной переменной (swap)

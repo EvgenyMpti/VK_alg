@@ -2,6 +2,16 @@
 
 #include "task.h"
 
-/*
-Р”Р°РЅ СЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє. РќРµРѕР±С…РѕРґРёРјРѕ РЅР°Р№С‚Рё СЃРµСЂРµРґРёРЅСѓ СЃРїРёСЃРєР°. РЎРґРµР»Р°С‚СЊ СЌС‚Рѕ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р° O(n) Р±РµР· РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… Р°Р»Р»РѕРєР°С†РёР№
-*/
+/* Дан связный список. Необходимо найти середину списка. Сделать это необходимо за O(n) без дополнительных аллокаций */
+
+class Task13 : public Task {
+public:
+    Task13()
+    {
+        desc_ = "Find linked list middle in O(n)";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
+
+    ListNode* Task13::findMiddleTwoPointers(ListNode* head);    //O(n)
+    ListNode* Task13::findMiddleGetLength(ListNode* head);      //O(n)
+};

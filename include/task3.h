@@ -10,8 +10,11 @@
 
 class Task3 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>& arr);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task3()
+    {
+        desc_ = "Reverse array without allocations";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     void reverse_swap(std::vector<int>& arr);         // O(n)
     void reverse_iter_swap(std::vector<int>& arr);    // O(n)

@@ -11,8 +11,11 @@ in-place.
 
 class Task7 : public Task {
 public:
-    std::vector<ImplementationResult> runImplementations(std::vector<int>& arr);
-    std::pair<int, std::vector<ImplementationResult>> getStat() override;
+    Task7()
+    {
+        desc_ = "Sort 0 and 1 in-place";
+    }
+    std::vector<ImplementationResult> runImplementations() override;
 
     void sortZeroOne(std::vector<int>& arr);            // O(n)
     void sortZeroOneCounting(std::vector<int>& arr);    // O(n)

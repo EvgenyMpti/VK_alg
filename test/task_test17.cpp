@@ -28,10 +28,10 @@ TEST(Task17Test, AllImplementations)
 
     for (const auto& testCase : testCases) 
     {
-        auto list1 = task.createListRaw(testCase.list1Values);
-        auto list2 = task.createListRaw(testCase.list2Values);
+        auto list1 = task.createList(testCase.list1Values);
+        auto list2 = task.createList(testCase.list2Values);
 
-        ListNodeRaw* mergedList = task.mergeTwoLists(list1, list2);
+        ListNode* mergedList = task.mergeTwoLists(list1, list2);
         std::vector<int> result = task.listToVector(mergedList);
         task.deleteList(mergedList);
 
